@@ -1,0 +1,13 @@
+{
+    "status": "Confirming",
+    "trackId": "28156600",
+    "txID": "x",
+    "address": "x",
+    "amount": "200",
+    "currency": "DGB",
+    "price": "1.53600000",
+    "network": "DigiByte",
+    "date": "1700847655",
+    "description": "",
+    "type": "payout"
+}
