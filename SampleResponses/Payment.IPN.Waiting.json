@@ -1,0 +1,14 @@
+{
+    "status":"Waiting",
+    "trackId":"35092972",
+    "amount":"100",
+    "currency":"TRX",
+    "feePaidByPayer":0,
+    "underPaidCover":2,
+    "email":"",
+    "orderId":"665673996",
+    "description":"",
+    "date":"1698107946",
+    "payDate":0,
+    "type":"payment"
+}
