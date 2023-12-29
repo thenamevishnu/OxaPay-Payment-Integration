@@ -38,6 +38,7 @@ const createInvoice = async (req, res) => {
 const createWithdrawal = async (req, res) => {
     try {
         const payout_apiKey = process.env.PAYOUT_APIKEY
+        const user_identifier = "23234" //unique ID for identify the user
         const currency = "TRX" //replace with other currency symbol, if you want to change
         const receiver_crypto_address = "TM23AykLjytb8tNC4LCKisdsGzGVHnPcf3" //crypto address of {currency} 
         const amount = "1" //amount
@@ -45,6 +46,7 @@ const createWithdrawal = async (req, res) => {
 
         const response = await createPayout(
             payout_apiKey,
+            user_identifier,
             receiver_crypto_address,
             amount,
             currency,
@@ -68,6 +70,7 @@ const callbackTransaction = async (req, res) => {
             if (body.type === "payment") {
                 //Deposit
                 const status = body.status
+                const user = body.description
                 if (status === "Waiting") {
                     // Payer selected the payment currency and geting address. Awaiting payment.
                 }
@@ -80,6 +83,7 @@ const callbackTransaction = async (req, res) => {
             } else if (body.type === "payout") {
                 //Withdrawal
                 const status = body.status
+                const user = body.description
                 if (status === "Confirming") {
                     // You payout request sent and awaiting blockchain network confirmation.
                 }

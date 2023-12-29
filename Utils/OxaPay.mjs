@@ -25,7 +25,7 @@ export const createPaymentLink = async (merchant_apiKey, unique_id, amount, call
     return response
 }
 
-export const createPayout = async (payout_apiKey, receiver_crypto_address, amount, currency, callbackUrl) => {
+export const createPayout = async (payout_apiKey, user_identifier, receiver_crypto_address, amount, currency, callbackUrl) => {
         
     const request_url = 'https://api.oxapay.com/api/send';
         
@@ -34,7 +34,8 @@ export const createPayout = async (payout_apiKey, receiver_crypto_address, amoun
         address: receiver_crypto_address,
         amount: amount,
         currency: currency,
-        callbackUrl: callbackUrl  
+        callbackUrl: callbackUrl,
+        description: user_identifier
     }
 
     const { data: response } = await axios.post(request_url, body)
